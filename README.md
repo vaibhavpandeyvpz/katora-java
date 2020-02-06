@@ -10,7 +10,7 @@ For even better project structure, I recommend implementing service `Provider` i
 
 ## Installation
 
-The package is build using [Github Actions](https://github.com/features/actions) and published to [Github Packages](https://github.com/features/packages).
+The package is built using [Github Actions](https://github.com/features/actions) and published to [Github Packages](https://github.com/features/packages).
 As of right now (Feb, 2020), its not pretty straight-forward to use packages from [Github Packages](https://github.com/features/packages) so I will state required steps below.
 
 In your project's `build.gradle` file, include below repository:
