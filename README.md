@@ -34,7 +34,7 @@ dependencies {
 
     // ... other dependencies
 
-    implementation 'com.vaibhavpandey:katora:1.0-SNAPSHOT'
+    implementation 'com.vaibhavpandey:katora:1.0.0'
 }
 ```
 
