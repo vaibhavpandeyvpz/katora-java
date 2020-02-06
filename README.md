@@ -1,6 +1,8 @@
 # katora-java
 Simple service container for Java apps.
 
+![Java CI](https://github.com/vaibhavpandeyvpz/katora-java/workflows/Java%20CI/badge.svg)
+
 This project aims to solve the code organisation problem with the infamous [Singleton](https://www.baeldung.com/java-singleton) pattern (and factories) common among Java (and maybe other languages as well) developers.
 Instead of hidden singletons throughout your project's codebase, they can now be registered at a single place and be accessed throughout.
 
@@ -83,7 +85,7 @@ public class YourMainClass {
 
 ### Providers
 
-Recommended approach is to organise services into Providers and install them onto your container and delegate service registrations as shown below.
+Recommended approach is to organise services into `Provider`s, install them onto your container and delegate service registrations as shown below.
 
 Here is our provider #1 that actually registers the services.
 
@@ -114,7 +116,7 @@ public class YourAliasProvider implements Provider {
 }
 ```
 
-Then create your container using above providers like:
+Then composing your container using above providers like:
 
 ```java
 import com.vaibhavpandey.katora.Container;
