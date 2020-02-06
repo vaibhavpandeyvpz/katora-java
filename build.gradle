@@ -22,7 +22,7 @@ publishing {
 }
 
 group 'com.vaibhavpandey'
-version '1.0.0'
+version '1.0.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
