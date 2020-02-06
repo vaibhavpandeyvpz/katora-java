@@ -5,7 +5,6 @@ import com.vaibhavpandey.katora.contracts.Factory;
 import com.vaibhavpandey.katora.contracts.Provider;
 import com.vaibhavpandey.katora.exceptions.FactoryException;
 import com.vaibhavpandey.katora.exceptions.NotFoundException;
-import com.vaibhavpandey.katora.exceptions.ProviderInstalledException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,8 +19,6 @@ public class Container implements MutableContainer {
     private final Map<String, Factory> mFactories = new HashMap<>();
 
     private final List<String> mSingletons = new ArrayList<>();
-
-    private final List<Class<? extends Provider>> mProviders = new ArrayList<>();
 
     @Override
     public <T> MutableContainer factory(Class<T> clazz, Factory<T> factory) {
@@ -76,14 +73,8 @@ public class Container implements MutableContainer {
     }
 
     @Override
-    public MutableContainer install(Provider provider) throws ProviderInstalledException {
-        Class<? extends Provider> clazz = provider.getClass();
-        if (mProviders.contains(clazz)) {
-            throw new ProviderInstalledException(
-                    String.format("Provider '%s' is already installed.", clazz));
-        }
+    public MutableContainer install(Provider provider) {
         provider.provide(this);
-        mProviders.add(clazz);
         return this;
     }
 

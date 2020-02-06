@@ -57,7 +57,7 @@ public class YourSingleton {
 
     public static void createContainer() {
         Container container = new Container();
-        container.singleton(YourServiceDependency.class, c -> new YourServiceDependency());
+        container.factory(YourServiceDependency.class, c -> new YourServiceDependency());
         container.singleton(YourService.class, c -> new YourService(c.get(YourServiceDependency.class)));
         container.factory("youralias", c -> c.get(YourService.class));
         mContainer = container;
@@ -96,7 +96,7 @@ public class YourServiceProvider implements Provider {
 
     @Override
     public void provide(MutableContainer container) {
-        container.singleton(YourServiceDependency.class, c -> new YourServiceDependency());
+        container.factory(YourServiceDependency.class, c -> new YourServiceDependency());
         container.singleton(YourService.class, c -> new YourService(c.get(YourServiceDependency.class)));
     }
 }
