@@ -1,7 +1,8 @@
 # katora-java
 Simple service container for Java apps.
 
-![Java CI](https://github.com/vaibhavpandeyvpz/katora-java/workflows/Java%20CI/badge.svg)
+[![Build](https://img.shields.io/github/workflow/status/vaibhavpandeyvpz/katora-java/Java%20CI?style=flat-square)](https://github.com/vaibhavpandeyvpz/katora-java/actions)
+[![Release](https://jitpack.io/v/vaibhavpandeyvpz/katora-java.svg)](https://jitpack.io/#vaibhavpandeyvpz/katora-java)
 
 This project aims to solve the code organisation problem with the infamous [Singleton](https://www.baeldung.com/java-singleton) pattern (and factories) common among Java (and maybe other languages as well) developers.
 Instead of hidden singletons throughout your project's codebase, they can now be registered at a single place and be accessed throughout.
@@ -10,8 +11,8 @@ For even better project structure, I recommend implementing service `Provider` i
 
 ## Installation
 
-The package is built using [Github Actions](https://github.com/features/actions) and published to [Github Packages](https://github.com/features/packages).
-As of right now (Feb, 2020), its not pretty straight-forward to use packages from [Github Packages](https://github.com/features/packages) so I will state required steps below.
+The package is built and tested using [Github Actions](https://github.com/features/actions) but installation is facilitated via [JitPack](https://jitpack.io/) for ease.
+The steps to include [Katora](https://github.com/vaibhavpandeyvpz/katora-java) are as follows:
 
 In your project's `build.gradle` file, include below repository:
 
@@ -20,21 +21,14 @@ repositories {
 
     // ... other repositories
 
-    maven {
-        name = 'GitHubPackages'
-        url = uri('https://maven.pkg.github.com/vaibhavpandeyvpz/katora-java')
-        credentials {
-            username = 'InsertYourGithubUsernameHere'
-            password = 'InsertYourGithubPersonalAccessTokenHere'
-        }
-    }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
 
     // ... other dependencies
 
-    implementation 'com.vaibhavpandey:katora:1.0.0'
+    implementation 'com.github.vaibhavpandeyvpz:katora-java:1.0.0'
 }
 ```
 
@@ -69,7 +63,7 @@ public class YourSingleton {
 }
 ```
 
-Then later, you first creat the container (just once) and then fetch the service anywhere in your app from your container using:
+Then later, you first create the container (just once) and then fetch the service anywhere in your app from your container using:
 
 ```java
 public class YourMainClass {
@@ -137,7 +131,7 @@ public class YourSingleton {
 }
 ```
 
-So while all of the above organises your project's code base while not enforcing any new coding pattern than Singleton.
+So that's how all of the above organises your project's code base while not enforcing any new coding pattern than Singleton.
 I created this library to stop repeating myself among projects and maybe product more maintainable code.
 
 ### License
